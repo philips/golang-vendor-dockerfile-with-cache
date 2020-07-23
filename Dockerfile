@@ -15,8 +15,8 @@ RUN go install -v -a std
 COPY vendor ./vendor/
 COPY go.* ./
 
-# Install all modules and use `|| :` to ignore errors in case of build constraints
-RUN grep -v '#' vendor/modules.txt  | xargs go build -mod=vendor -a -v -i || :
+# Install all modules and use `|| true` to ignore errors in case of build constraints
+RUN grep -v '#' vendor/modules.txt  | xargs -I{} ash -c "go build -mod=vendor -a -v -i {} || true"
 
 # Copy local code to the container image.
 COPY . ./
