@@ -1,6 +1,6 @@
 # Go + vendor/ + cache
 
-This is an attempt at a Go Dockerfile that caches as much as possible for fast builds. This came out of frustration trying to use skaffold.io and sitting through buildtimes that felt like a C++ code base.
+This is an attempt at a Go Dockerfile that caches as much as possible for fast builds. This came out of frustration trying to use https://skaffold.dev and sitting through buildtimes that felt like a C++ code base.
 
 See the [Dockerfile](https://github.com/philips/golang-vendor-dockerfile-with-cache/blob/master/Dockerfile)!
 
