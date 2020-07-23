@@ -14,7 +14,9 @@ RUN go install -v -a std
 # Cache dependencies
 COPY vendor ./vendor/
 COPY go.* ./
-RUN grep -v '#' vendor/modules.txt  | xargs go install -mod=vendor -a -v -i
+
+# Install all modules and use `|| :` to ignore errors in case of build constraints
+RUN grep -v '#' vendor/modules.txt  | xargs go install -mod=vendor -a -v -i || :
 
 # Copy local code to the container image.
 COPY . ./
